@@ -9,6 +9,7 @@
     "elm-tooling": "^1.15.1"
   },
     "workspaces": [
-      "./simple-compiler"
+      "./simple-compiler",
+      "./my-compiler"
     ]
 }
