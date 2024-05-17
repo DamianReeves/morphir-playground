@@ -6,7 +6,7 @@ import elm from 'vite-plugin-elm-watch'
 export default defineConfig({
     build: {
         rollupOptions: {
-            input: ["./index.ts"],
+            input: ["src/index.ts"],
             output: {
                 entryFileNames: "compiler.js",
                 format: "esm"

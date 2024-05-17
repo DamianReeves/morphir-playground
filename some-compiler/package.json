@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "dev": "bunx --bun vite",
-    "build": "vite build",
+    "build": "tsc && vite build",
     "preview": "vite preview",
     "postinstall": "elm-tooling install"
   },
