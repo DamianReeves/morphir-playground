@@ -2,6 +2,7 @@ port module Morphir.Simple.Compiler.Main exposing (..)
 
 import Json.Decode as Decode exposing (field, string)
 import Json.Encode as Encode
+import Morphir.Simple.Compiler.Settings exposing (decodePackageInfo)
 
 
 port buildFromScratch : (Encode.Value -> msg) -> Sub msg
@@ -49,7 +50,20 @@ update msg model =
 
 process : Msg -> Cmd Msg
 process msg =
-    Cmd.none
+    case msg of
+        BuildFromScratch value ->
+            let
+                packageInfo =
+                    Decode.decodeValue decodePackageInfo value
+            in
+            case packageInfo of
+                Ok info ->
+                    info.name
+                        |> String.append "Building from scratch: "
+                        |> reportProgress
+
+                Err _ ->
+                    reportProgress "Failed to decode package info"
 
 
 report : Msg -> Cmd Msg

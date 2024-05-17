@@ -1,13 +1,43 @@
-export let Main: Main;
+// export declare const Main: {
+//     init: (flags?: any) => ElmApp
+// }
 
-export interface ElmApp extends Object {
-    ports: {}
+export namespace Main {
+
+    interface ElmApp extends Object {
+        ports: Ports;
+    }
+
+    interface Args {
+        node?: HTMLElement;
+        flags?: any;
+    }
+
+    interface Subscribe<T> {
+        subscribe(callback: (value: T) => any): void;
+        unsubscribe(callback: (value: T) => any): void;
+    }
+
+    interface Send<T> {
+        send(value: T): void;
+    }
+
+    function init(args: Args): ElmApp;
+
+    interface Ports {
+        buildFromScratch: Send<any>;
+        reportProgress: Subscribe<string>;
+    }
 }
 
-export interface Main {
-    init(flags?: any): ElmApp;
+function init(args: Main.Args): Main.ElmApp;
 
-}
+
+// export declare class Main {
+//     init(flags?: any): ElmApp;
+
+// }
+
 
 
 /*
