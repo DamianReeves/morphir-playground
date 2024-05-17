@@ -1,6 +1,6 @@
-// export declare const Main: {
-//     init: (flags?: any) => ElmApp
-// }
+export default Main = {
+    init: (flags?: Main.Args) => Main.ElmApp
+}
 
 export namespace Main {
 

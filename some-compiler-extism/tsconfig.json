@@ -1,9 +1,5 @@
 {
   "compilerOptions": {
-    "outDir": "dist",
-    "esModuleInterop": true,
-    "isolatedModules": true,
-
     // Enable latest features
     "lib": ["ESNext","DOM"],
     "target": "ESNext",
@@ -15,10 +11,11 @@
     // Bundler mode
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
-    //"verbatimModuleSyntax": true,
+    "verbatimModuleSyntax": true,
     "noEmit": false,
     "emitDeclarationOnly": true,
     "declaration": true,
+
     "allowArbitraryExtensions": true,
 
     // Best practices

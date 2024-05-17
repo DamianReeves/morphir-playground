@@ -2,12 +2,22 @@ import Main from './elm/Morphir/Simple/Compiler/Main.elm';
 
 
 const app = Main.init({ flags: {} });
+console.log(app);
 
-function reportProgress(value: string) {
-    console.log(value);
+export function buildFromScratch(name: string) {
+    let reportProgress = (value: string) => {
+        console.log(value);
+        app.ports.reportProgress.unsubscribe(reportProgress);
+    };
+    app.ports.reportProgress.subscribe(reportProgress);
+    app.ports.buildFromScratch.send({ name: name });
 }
 
-console.log(app);
-app.ports.reportProgress.subscribe(reportProgress);
-app.ports.buildFromScratch.send({ name: "some-compiler" });
-app.ports.buildFromScratch.send({ name: "Morphir.Simple.Compiler.Main" });
+export function hello() {
+    console.log("Hello from some-compiler");
+}
+
+export default {
+    buildFromScratch,
+    hello
+}

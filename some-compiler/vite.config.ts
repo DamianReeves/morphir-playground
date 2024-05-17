@@ -3,15 +3,14 @@ import { defineConfig } from 'vite'
 import elm from 'vite-plugin-elm-watch'
 
 
-export default defineConfig({
-    build: {
-        rollupOptions: {
-            input: ["src/index.ts"],
-            output: {
-                entryFileNames: "compiler.js",
-                format: "esm"
-            }
+export default defineConfig(({ command, mode, isSsrBuild, isPreview }) => {
+    if (command === 'serve') {
+        return {
+            plugins: [elm({ mode: 'debug' })]
         }
-    },
-    plugins: [elm()]
+    } else {
+        return {
+            plugins: [elm()]
+        }
+    }
 })

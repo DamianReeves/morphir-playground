@@ -1,0 +1,11 @@
+{
+  "name": "some-compiler-component",
+  "private": true,
+  "version": "0.0.1",
+  "scripts": {
+    "build": "echo 'Building some-compiler-component ...'"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.1.2"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "some-compiler-extism",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "scripts": {
+    "bundle": "bun build ./src/index.ts --compile --outfile ./dist/some-compiler",
+    "build": "bun build ./src/index.ts --outfile ./dist/index.js"
+  },
+  "dependencies": {
+    "some-compiler": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.1.2"
+  }
+}
